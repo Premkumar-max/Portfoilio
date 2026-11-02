@@ -72,7 +72,7 @@ npm run preview
 
 ---
 
-## 📬 Contact Information
+## 📬 Contact Informations
 
 - **Email:** [premarun163@gmail.com](mailto:premarun163@gmail.com)
 - **LinkedIn:** [Prem Kumar N](https://www.linkedin.com/in/prem-kumar-5abba9321)
