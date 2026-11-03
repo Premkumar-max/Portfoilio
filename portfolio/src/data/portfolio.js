@@ -29,7 +29,7 @@ export const socialLinks = {
   email: "premarun163@gmail.com",
   linkedin: "https://www.linkedin.com/in/prem-kumar-5abba9321",
   github: "",       // Add GitHub URL here if needed, or leave blank to hide
-  resumeUrl: "/Prem Kumar LTM Resume.pdf",
+  resumeUrl: "/Premkumar_Resume_CloudEngineer.pdf",
 };
 
 export const skills = [

@@ -53,7 +53,7 @@ npm run preview
 
 ```
 .
-├── Prem Kumar LTM Resume.pdf     # Official resume
+├── Premkumar_Resume_CloudEngineer.pdf # Official resume
 ├── portfolio/                    # React application
 │   ├── public/                   # Static assets & resume
 │   ├── src/
