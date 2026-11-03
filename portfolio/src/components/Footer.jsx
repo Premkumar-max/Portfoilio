@@ -1,43 +1,54 @@
 import { personalInfo, socialLinks } from '../data/portfolio';
 
+const footerNav = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-800 bg-navy-950 py-12 text-slate-400" role="contentinfo">
+    <footer className="border-t border-slate-800/80 bg-navy-950 py-12 text-slate-400" role="contentinfo">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand info */}
-          <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center md:items-start gap-1.5">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-aws-orange to-amber-600 flex items-center justify-center text-navy-950 font-black text-xs">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-aws-orange to-amber-600 flex items-center justify-center text-navy-950 font-heading font-black text-xs">
                 PK
               </div>
-              <span className="font-bold text-white text-base">
+              <span className="font-heading font-bold text-white text-base">
                 {personalInfo.name}
               </span>
-              <span className="text-xs font-mono text-aws-orange border border-aws-orange/30 px-2 py-0.5 rounded-md bg-aws-orange/10">
-                AWS &amp; DevOps
+              <span className="text-[11px] font-mono text-aws-orange border border-aws-orange/30 px-2 py-0.5 rounded-md bg-aws-orange/10">
+                AWS &amp; DevOps Engineer
               </span>
             </div>
-            <p className="text-xs text-slate-500 max-w-sm text-center md:text-left">
-              Architecting secure cloud infrastructure, automated delivery pipelines, and resilient multi-account environments.
+            <p className="text-xs text-slate-400 max-w-sm text-center md:text-left">
+              Building, automating, and managing secure, scalable, and reliable cloud infrastructure.
             </p>
           </div>
 
           {/* Nav links */}
-          <div className="flex flex-wrap justify-center gap-6 text-xs font-mono text-slate-400">
-            <a href="#home" className="hover:text-aws-orange transition-colors">Home</a>
-            <a href="#about" className="hover:text-aws-orange transition-colors">About</a>
-            <a href="#skills" className="hover:text-aws-orange transition-colors">Skills</a>
-            <a href="#experience" className="hover:text-aws-orange transition-colors">Experience</a>
-            <a href="#projects" className="hover:text-aws-orange transition-colors">Projects</a>
-            <a href="#certifications" className="hover:text-aws-orange transition-colors">Certifications</a>
-            <a href="#contact" className="hover:text-aws-orange transition-colors">Contact</a>
+          <div className="flex flex-wrap justify-center gap-5 text-xs font-mono text-slate-400">
+            {footerNav.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="hover:text-aws-orange transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Socials & Resume */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {socialLinks.github && (
               <a
                 href={socialLinks.github}
@@ -70,17 +81,17 @@ export default function Footer() {
                 download="Premkumar_Resume_CloudEngineer.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-aws-orange text-navy-950 font-bold text-xs hover:bg-aws-orange-light transition-colors"
+                className="btn-primary !text-xs !py-1.5 !px-3"
               >
-                Resume PDF
+                Resume
               </a>
             )}
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-          <p>© {currentYear} {personalInfo.name}. All rights reserved.</p>
-          <p className="font-mono text-[11px] text-slate-600">Built with React, Tailwind CSS &amp; Cloud Native Architecture</p>
+          <p>© {currentYear} {personalInfo.name}. AWS &amp; DevOps Engineer.</p>
+          <p className="font-mono text-[11px] text-slate-500">Chennai, Tamil Nadu, India</p>
         </div>
       </div>
     </footer>
