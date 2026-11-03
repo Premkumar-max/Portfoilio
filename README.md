@@ -43,9 +43,10 @@ npm run preview
 
 - **Core:** React 18, Vite 6
 - **Styling:** Tailwind CSS, PostCSS, Autoprefixer
-- **Visuals:** Custom SVG Cloud Topology (AWS Cloud, VPC, Load Balancer, Kubernetes, CloudWatch)
-- **Design System:** Light Sky Blue theme with AWS Orange accents, clean glassmorphism cards, and responsive layouts
-- **Central Config:** All portfolio data (experience, skills, contact links) is configurable in `portfolio/src/data/portfolio.js`
+- **Visuals:** Custom Interactive SVG Cloud Mesh Architecture (AWS VPC, ALB, Amazon EKS, Amazon ECS, CloudWatch, Terraform state)
+- **Design System:** Modern Dark Theme with Deep Navy background (`#070b14`), AWS Orange primary accents (`#FF9900`), Cyan/Sky Blue secondary accents (`#38bdf8`), and glassmorphism cards.
+- **Sections:** Home, About, Skills, Experience, Featured Projects, Certifications & Education, Contact
+- **Central Config:** All portfolio data (projects, experience, skills, contact links) is configurable in `portfolio/src/data/portfolio.js`
 
 ---
 
@@ -55,14 +56,14 @@ npm run preview
 .
 ├── Premkumar_Resume_CloudEngineer.pdf # Official resume
 ├── portfolio/                    # React application
-│   ├── public/                   # Static assets & resume
+│   ├── public/                   # Static assets & resume PDF
 │   ├── src/
-│   │   ├── components/           # UI Components (Navbar, Hero, About, Skills, Experience, etc.)
+│   │   ├── components/           # UI Components (Navbar, Hero, About, Skills, Experience, Projects, Certifications, Contact, Footer)
 │   │   ├── data/portfolio.js     # Central data configuration
 │   │   ├── hooks/useReveal.js    # Scroll reveal hook
 │   │   ├── App.jsx               # Main application
 │   │   ├── main.jsx              # Entry point
-│   │   └── index.css             # Tailwind base & custom styles
+│   │   └── index.css             # Tailwind base & dark theme styles
 │   ├── index.html
 │   ├── package.json
 │   ├── tailwind.config.js
@@ -72,7 +73,8 @@ npm run preview
 
 ---
 
-## 📬 Contact Informations
+## 📬 Contact Information
 
-- **Email:** [premarun163@gmail.com](mailto:premarun163@gmail.com)
+- **Email:** [Premkumar.career163@gmail.com](mailto:Premkumar.career163@gmail.com)
 - **LinkedIn:** [Prem Kumar N](https://www.linkedin.com/in/prem-kumar-5abba9321)
+- **GitHub:** [Premkumar-max](https://github.com/Premkumar-max)

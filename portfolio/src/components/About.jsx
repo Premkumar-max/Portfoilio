@@ -1,53 +1,131 @@
 import { useReveal } from '../hooks/useReveal';
-import { personalInfo } from '../data/portfolio';
+import { personalInfo, achievements } from '../data/portfolio';
 
 export default function About() {
   const [ref, revealed] = useReveal();
 
   return (
     <section id="about" className="py-24 relative" aria-label="About section">
-      <div className="section-container">
+      {/* Background accents */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-aws-orange/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="section-container relative">
         <div ref={ref} className={`animate-reveal ${revealed ? 'revealed' : ''}`}>
+          {/* Section Header */}
           <div className="mb-12">
-            <p className="text-aws-orange text-sm font-mono tracking-widest uppercase mb-2">// about me</p>
-            <h2 className="section-heading">Professional Background</h2>
+            <span className="section-tag">// 01. Professional Overview</span>
+            <h2 className="section-heading">Engineering Background</h2>
             <div className="section-divider" />
+            <p className="section-subheading">
+              Dedicated to designing resilient AWS infrastructure, automating delivery pipelines, and maintaining high-availability production cloud workloads.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
-            {/* Text */}
-            <div className="lg:col-span-3 flex flex-col gap-5">
-              {personalInfo.about.map((para, i) => (
-                <p key={i} className="text-slate-600 leading-relaxed text-base">{para}</p>
-              ))}
-              <div className="flex flex-wrap gap-4 pt-2">
-                <div className="flex items-center gap-2 text-slate-500 text-sm">
-                  <svg className="w-4 h-4 text-aws-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  {personalInfo.location}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left 7 cols: Bio & Core Focus */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              <div className="space-y-4 text-slate-300 text-base leading-relaxed">
+                {personalInfo.about.map((paragraph, index) => (
+                  <p key={index} className="text-slate-300/90">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* Terminal-style Architecture Execution Card */}
+              <div className="bg-navy-900 border border-slate-800 rounded-2xl p-5 font-mono text-xs shadow-lg">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-slate-500">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                    <span className="ml-1 text-slate-400">devops-profile.sh</span>
+                  </div>
+                  <span className="text-[10px] text-slate-600">bash / zsh</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-500 text-sm">
-                  <svg className="w-4 h-4 text-aws-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  {personalInfo.currentRole}
+                <div className="space-y-1.5 text-slate-300">
+                  <p className="text-slate-500"># Engineering core values</p>
+                  <p>
+                    <span className="text-aws-orange">$</span> echo <span className="text-cloud-cyan">"$EXPERTISE_PILLARS"</span>
+                  </p>
+                  <p className="text-emerald-400 pl-4">
+                    ✓ Infrastructure as Code (Terraform &amp; CloudFormation)
+                  </p>
+                  <p className="text-emerald-400 pl-4">
+                    ✓ Container Orchestration (Kubernetes, Amazon EKS, ECS, Docker)
+                  </p>
+                  <p className="text-emerald-400 pl-4">
+                    ✓ Enterprise CI/CD Delivery (Jenkins, GitHub Actions, GoCD)
+                  </p>
+                  <p className="text-emerald-400 pl-4">
+                    ✓ Observability &amp; SRE (CloudWatch, Prometheus, Grafana, Splunk)
+                  </p>
+                  <p className="text-emerald-400 pl-4">
+                    ✓ Cloud Security &amp; Compliance (IAM Least-Privilege, KMS, VPC)
+                  </p>
                 </div>
+              </div>
+
+              {/* Key Achievements Metric Banner */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                {achievements.map((ach) => (
+                  <div
+                    key={ach.metric}
+                    className="bg-navy-900/80 border border-slate-800/90 rounded-xl p-3.5 flex flex-col justify-between hover:border-aws-orange/40 transition-colors group"
+                  >
+                    <span className="text-lg sm:text-xl font-mono font-bold text-aws-orange group-hover:text-amber-300 transition-colors">
+                      {ach.metric}
+                    </span>
+                    <span className="text-xs text-slate-400 font-medium leading-snug mt-1">
+                      {ach.title}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Highlights */}
-            <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
-              {personalInfo.highlights.map(({ label, sub }) => (
-                <div key={label} className="glass-card p-4 flex flex-col gap-1 hover:border-amber-300 hover:shadow-md transition-all duration-300 group">
-                  <span className="text-xl font-bold text-aws-orange group-hover:text-aws-orange-light transition-colors">{label}</span>
-                  <span className="text-xs text-slate-500 leading-snug">{sub}</span>
+            {/* Right 5 cols: Highlights & Operational Stats */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-3.5">
+                {personalInfo.highlights.map((highlight) => (
+                  <div
+                    key={highlight.label}
+                    className="glass-card-interactive p-4 flex flex-col justify-between border-slate-800 bg-navy-900/60"
+                  >
+                    <span className="text-xl sm:text-2xl font-black text-white group-hover:text-aws-orange transition-colors">
+                      {highlight.label}
+                    </span>
+                    <span className="text-xs font-medium text-slate-400 mt-2 leading-relaxed">
+                      {highlight.sub}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Current Role Card */}
+              <div className="glass-card p-5 border-slate-800 bg-gradient-to-br from-navy-900/90 via-navy-900/50 to-slate-900/80">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-mono text-cloud-cyan tracking-wider uppercase">
+                    Current Deployment
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    Active
+                  </span>
                 </div>
-              ))}
-              <div className="glass-card p-4 col-span-2 lg:col-span-2 border-blue-200 bg-gradient-to-br from-white to-sky-50">
-                <p className="text-xs font-mono text-blue-500 mb-2">$ role --current</p>
-                <p className="text-sm text-slate-600 leading-relaxed">Cloud infrastructure, DevOps automation, and production operations.</p>
+                <h3 className="text-base font-bold text-white mb-1">
+                  {personalInfo.currentRole}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                  Handling real-time AWS infrastructure requests, GoCD pipeline resolution, ECS monitoring, and automated cloud account decommissioning for global financial services.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {['AWS', 'ECS', 'Terraform', 'GoCD', 'CloudWatch', 'CloudTrail'].map((tag) => (
+                    <span key={tag} className="badge text-[11px] py-0.5 px-2">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
